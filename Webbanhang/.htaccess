@@ -1,0 +1,9 @@
+RewriteEngine On
+RewriteBase /webbanhang/
+
+# Nếu file hoặc folder không tồn tại
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# Gửi toàn bộ đường dẫn còn lại vào biến `url`
+RewriteRule ^(.*)$ index.php?url=$1 [QSA,L]
